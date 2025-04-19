@@ -1,0 +1,19 @@
+﻿<div class="container">
+    <div class="row justify-content-center"></div>
+    <div class="col-md-6"></div>
+    <form method="post" action="@Url.Action("OpenIAGPT")">
+
+        <div class="form-group">
+            <textarea name="query" id="query" class="form-control" placeholder="Enter your text" rows="4"></textarea>
+        </div>
+        <div action="form-group">
+            <label for="selectedLenguage">Selecte Lenguage</label>
+            <select name="selectedLenguage" id="selectedLenguage" class="form-control">
+
+                 @foreach( var Lenguage in  ViewBag.Laguages)
+
+            </select>
+        </div>
+
+    </form>
+</div>

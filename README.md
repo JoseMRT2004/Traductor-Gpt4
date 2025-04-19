@@ -1,60 +1,58 @@
-<!-- Traductor Multilingüe con GPT-4
+# Traductor Multilingüe con GPT-4
 
-Aplicación de escritorio para traducir textos usando la inteligencia artificial de OpenAI (GPT-4). Soporta más de 50 idiomas y es fácil de usar.
+Aplicación de escritorio para traducir texto entre múltiples idiomas mediante la API de OpenAI (GPT-4). Ofrece una interfaz gráfica ligera, traducción contextual precisa, historial local y soporte para más de 10 idiomas.
 
-¿Qué hace esta app?
+## Índice
 
-Esta aplicación permite traducir textos de un idioma a otro utilizando la inteligencia de GPT-4. Puedes seleccionar el idioma de origen y el idioma al que deseas traducir. Escribes o pegas el texto, y la app muestra el resultado traducido. Puedes copiar la traducción con un clic. Tiene modo claro y oscuro, y guarda las últimas 10 traducciones.
+- [Características](#características)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+  - [Uso de appsettings.json](#uso-de-appsettingsjson)
 
+## Características
 
-Entendido, José. Aquí tienes todo en una sola estructura, sin líneas divisoras ni underscores, manteniendo los desplegables, la numeración clara y los bloques de código copiable:
+- Traducción contextual usando GPT-4.
+- Soporte para más de 50 idiomas.
+- Selección de idioma de origen y destino.
+- Copia rápida del resultado al portapapeles.
+- Historial de las últimas 10 traducciones.
+- Configuración flexible mediante archivos, entorno o entrada manual.
 
-<details>  
-<summary><strong>Requisitos</strong></summary>
+## Requisitos
 
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- Cuenta en [OpenAI](https://platform.openai.com/signup) con clave API.
+- IDE compatible (Visual Studio, Rider, VS Code).
+- Conexión a Internet.
 
-	•	.NET 6.0 SDK
-	•	Cuenta de OpenAI con clave API
-	•	Visual Studio o Rider (opcional)
-
-</details>
-
-<details>  
-<summary><strong>Instalación</strong></summary>
-
-
+## Instalación
 
 ```bash
-
-# 1. Clonar el repositorio:
-
+# Clonar el repositorio
 git clone https://github.com/DevM4riano/Traductor-GPT4.git
 cd Traductor-GPT4
 
-# 2. Restaurar las dependencias:
-
+# Restaurar dependencias
 dotnet restore
 
-# 3. Crear un archivo .env en la raíz del proyecto con tu clave:
+# Crear archivo de entorno (opcional si no usas appsettings)
+echo "OPENAI_API_KEY=tu_clave_aquí" > .env
 
-OPENAI_API_KEY=tu_clave_aquí
-
-# 4. Ejecutar la aplicación:
-
+# Ejecutar la aplicación
 dotnet run
 ```
-</details>
 
+### _Uso de appsettings.json_
 
-<details>  
+- Puedes definir la clave de API en el archivo de configuración estándar de .NET `appsettings.json`, que suele ser adecuado para entornos de desarrollo.
 
-<summary><strong>Detección de la clave API</strong></summary>
+> [!TIP]  
+> **Recomendación:** Para mantener tus credenciales seguras y evitar comprometerlas en un repositorio público, es recomendable usar un archivo `.env` para almacenar las claves API en vez de `appsettings.json`. El archivo `.env` se puede excluir de control de versiones (añadiéndolo a `.gitignore`) para proteger la clave de accesos no autorizados. Este método también es más flexible para trabajar en diferentes entornos (local, testing, producción).
 
-
-La app busca la clave en el siguiente orden: 
-
-	1.	En el archivo .env
-	2.	En las variables de entorno del sistema
-	3.	Si no la encuentra, se solicita al iniciar la aplicación
-
-</details>
+```json
+{
+  "OpenAI": {
+    "ApiKey": "tu_clave_aquí"
+  }
+}
+```
